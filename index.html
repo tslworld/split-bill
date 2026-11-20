@@ -296,18 +296,9 @@
         <!-- 5. 分享 -->
         <section class="card" aria-labelledby="h-share">
           <h2 id="h-share">分享</h2>
-          <label class="field" for="shareCodeOut"><span>代碼</span>
-            <input type="text" id="shareCodeOut" readonly />
-          </label>
-          <label class="field" for="sharePass"><span>密碼 · 4位</span>
-            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" data-pin id="sharePass" placeholder="輸入群組密碼" autocomplete="off" />
-          </label>
           <div class="btn-row">
-            <button class="btn" id="copyCodeBtn" type="button">複製代碼</button>
             <button class="btn primary" id="shareInviteBtn" type="button">複製邀請</button>
-            <button class="btn primary" id="copyLinkBtn" type="button">複製分享連結</button>
           </div>
-          <p class="note">有連結的人可直接進入</p>
           <div class="msg" id="shareMsg" role="status"></div>
         </section>
       </div>
@@ -383,7 +374,7 @@
         if (!name) { showMsg(msg, "請輸入名稱。", "err"); return; }
         if (!/^\d{4}$/.test(p1)) { showMsg(msg, "密碼須為 4 位數字。", "err"); return; }
         if (p1 !== p2) { showMsg(msg, "兩次密碼不一致。", "err"); return; }
-        state = { group: { name: name, passHash: hashPass(p1) }, members: [], expenses: [] };
+        state = { group: { name: name, passHash: hashPass(p1), pass: p1 }, members: [], expenses: [] };
         $("gatePass1").value = ""; $("gatePass2").value = "";
         showApp();
       }
@@ -428,14 +419,14 @@
         var msg = $("joinMsg");
         var data = parseShareCode($("joinCode").value);
         if (!data) { showMsg(msg, "代碼不正確。", "err"); return; }
+        var joinPassVal = $("joinPass").value;
         if (data.h) {
-          var pass = $("joinPass").value;
-          if (!/^\d{4}$/.test(pass) || hashPass(pass) !== data.h) {
+          if (!/^\d{4}$/.test(joinPassVal) || hashPass(joinPassVal) !== data.h) {
             showMsg(msg, "密碼不正確。", "err");
             return;
           }
         }
-        state = { group: { name: data.n, passHash: data.h }, members: [], expenses: [] };
+        state = { group: { name: data.n, passHash: data.h, pass: data.h ? joinPassVal : null }, members: [], expenses: [] };
         showApp();
       }
       function copyText(text, okText, msgEl) {
@@ -457,12 +448,9 @@
       function shareInvite() {
         var msg = $("shareMsg");
         if (!state.group) return;
-        var p = $("sharePass").value.trim();
-        if (!/^\d{4}$/.test(p) || hashPass(p) !== state.group.passHash) {
-          showMsg(msg, "請輸入正確密碼。", "err");
-          return;
-        }
-        var text = "分賬群組「" + state.group.name + "」\n代碼：" + makeShareCode() + "\n密碼：" + p;
+        var p = state.group.pass ? String(state.group.pass) : "";
+        var link = buildShareLink(p || null);
+        var text = "分賬群組「" + state.group.name + "」\n邀請連結：" + link + "\n代碼：" + makeShareCode() + (p ? "\n密碼：" + p : "");
         copyText(text, "邀請已複製。", msg);
       }
 
@@ -489,11 +477,7 @@
       function copyShareLink() {
         var msg = $("shareMsg");
         if (!state.group) return;
-        var p = $("sharePass").value.trim();
-        if (!/^\d{4}$/.test(p) || hashPass(p) !== state.group.passHash) {
-          showMsg(msg, "請輸入正確密碼。", "err");
-          return;
-        }
+        var p = state.group.pass ? String(state.group.pass) : null;
         copyText(buildShareLink(p), "連結已複製。", msg);
       }
       function importFromLink() {
@@ -503,7 +487,7 @@
           if (!d || typeof d.n !== "string" || !d.n) return false;
           var h = typeof d.h === "string" && d.h ? d.h
             : (d.p && /^\d{4}$/.test(String(d.p)) ? hashPass(String(d.p)) : null);
-          state = { group: { name: d.n, passHash: h }, members: [], expenses: [] };
+          state = { group: { name: d.n, passHash: h, pass: d.p && /^\d{4}$/.test(String(d.p)) ? String(d.p) : null }, members: [], expenses: [] };
           if (Array.isArray(d.m)) {
             var seen = {};
             d.m.forEach(function (nm) {
@@ -857,7 +841,6 @@
         $("expenseCount").textContent = state.expenses.length;
         $("memberCount").textContent = state.members.length;
         $("currentGroupName").textContent = state.group.name;
-        $("shareCodeOut").value = makeShareCode();
 
         var bal = computeBalances();
         var bArea = $("balanceArea");
@@ -998,11 +981,7 @@
       });
 
       $("copySummaryBtn").addEventListener("click", copySummary);
-      $("copyCodeBtn").addEventListener("click", function () {
-        copyText(makeShareCode(), "代碼已複製。", $("shareMsg"));
-      });
       $("shareInviteBtn").addEventListener("click", shareInvite);
-      $("copyLinkBtn").addEventListener("click", copyShareLink);
 
       $("shotBtn").addEventListener("click", function () { $("shotFile").click(); });
       $("shotFile").addEventListener("change", onShotFile);
