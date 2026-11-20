@@ -178,18 +178,6 @@
           <button class="btn primary" id="createGroupBtn" type="button">建立</button>
         </div>
         <div class="msg" id="gateCreateMsg" role="status"></div>
-
-        <h3 class="sub">用代碼加入</h3>
-        <label class="field" for="joinCode"><span>代碼</span>
-          <input type="text" id="joinCode" placeholder="貼上代碼" autocomplete="off" />
-        </label>
-        <label class="field" for="joinPass"><span>密碼 · 4位</span>
-          <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" data-pin id="joinPass" placeholder="1234" autocomplete="off" />
-        </label>
-        <div class="btn-row">
-          <button class="btn primary" id="joinBtn" type="button">加入</button>
-        </div>
-        <div class="msg" id="joinMsg" role="status"></div>
       </section>
 
       <div id="appMain" style="display:none;">
@@ -404,30 +392,6 @@
         var b64 = btoa(unescape(encodeURIComponent(payload)))
           .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
         return "FZ-" + b64.replace(/(.{4})/g, "$1 ").trim();
-      }
-      function parseShareCode(raw) {
-        try {
-          var s = String(raw || "").trim().replace(/^FZ-?/i, "").replace(/\s+/g, "");
-          s = s.replace(/-/g, "+").replace(/_/g, "/");
-          while (s.length % 4) s += "=";
-          var d = JSON.parse(decodeURIComponent(escape(atob(s))));
-          if (!d || typeof d.n !== "string" || !d.n) return null;
-          return { n: d.n, h: typeof d.h === "string" ? d.h : null };
-        } catch (e) { return null; }
-      }
-      function joinWithCode() {
-        var msg = $("joinMsg");
-        var data = parseShareCode($("joinCode").value);
-        if (!data) { showMsg(msg, "代碼不正確。", "err"); return; }
-        var joinPassVal = $("joinPass").value;
-        if (data.h) {
-          if (!/^\d{4}$/.test(joinPassVal) || hashPass(joinPassVal) !== data.h) {
-            showMsg(msg, "密碼不正確。", "err");
-            return;
-          }
-        }
-        state = { group: { name: data.n, passHash: data.h, pass: data.h ? joinPassVal : null }, members: [], expenses: [] };
-        showApp();
       }
       function copyText(text, okText, msgEl) {
         function done() { showMsg(msgEl, okText, "ok"); }
@@ -957,8 +921,6 @@
 
       $("createGroupBtn").addEventListener("click", createGroup);
       $("gatePass2").addEventListener("keydown", function (ev) { if (ev.key === "Enter") createGroup(); });
-      $("joinBtn").addEventListener("click", joinWithCode);
-      $("joinPass").addEventListener("keydown", function (ev) { if (ev.key === "Enter") joinWithCode(); });
       $("resetBtn").addEventListener("click", resetGroup);
 
       $("addMemberBtn").addEventListener("click", addMember);
