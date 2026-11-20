@@ -36,39 +36,39 @@
         background: var(--bg);
         color: var(--ink);
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang HK", "PingFang TC", "Microsoft JhengHei", sans-serif;
-        font-size: 14.5px;
-        line-height: 1.5;
+        font-size: 17.5px;
+        line-height: 1.55;
         -webkit-font-smoothing: antialiased;
       }
       button { font: inherit; cursor: pointer; }
       input, select { font: inherit; color: var(--ink); }
-      .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 24px 18px 56px; }
 
-      header.hero { padding: 2px 0 12px; border-bottom: 1px solid var(--line); margin-bottom: 2px; }
-      header.hero h1 { font-size: 17px; font-weight: 600; letter-spacing: .04em; margin: 0; color: var(--ink); }
-      .groupbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; padding: 10px 0 2px; }
-      .groupbar .gname { font-weight: 600; font-size: 14px; }
+      header.hero { padding: 4px 0 16px; border-bottom: 1px solid var(--line); margin-bottom: 2px; }
+      header.hero h1 { font-size: 24px; font-weight: 600; letter-spacing: .04em; margin: 0; color: var(--ink); }
+      .groupbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; padding: 12px 0 4px; }
+      .groupbar .gname { font-weight: 600; font-size: 17px; }
       .groupbar .spacer { flex: 1; }
 
       section.card {
         background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-        padding: 18px 18px 16px; margin-top: 14px;
+        padding: 24px 22px 20px; margin-top: 18px;
       }
       section.card > h2 {
-        font-size: 12.5px; font-weight: 600; letter-spacing: .09em; margin: 0 0 14px;
-        padding-bottom: 10px; border-bottom: 1px solid var(--line-light); color: #a9bcd3;
+        font-size: 15px; font-weight: 600; letter-spacing: .09em; margin: 0 0 18px;
+        padding-bottom: 12px; border-bottom: 1px solid var(--line-light); color: #a9bcd3;
       }
-      h3.sub { font-size: 12px; font-weight: 600; letter-spacing: .07em; margin: 20px 0 10px; color: var(--ink-soft); }
+      h3.sub { font-size: 14px; font-weight: 600; letter-spacing: .07em; margin: 24px 0 12px; color: var(--ink-soft); }
       h3.sub:first-of-type { margin-top: 2px; }
 
-      .row { display: flex; gap: 12px; flex-wrap: wrap; }
-      .row > * { flex: 1 1 160px; }
+      .row { display: flex; gap: 14px; flex-wrap: wrap; }
+      .row > * { flex: 1 1 180px; }
       .row > .grow-2 { flex-grow: 2; }
-      label.field { display: block; margin-bottom: 12px; }
-      label.field > span { display: block; font-size: 12px; font-weight: 500; letter-spacing: .02em; margin-bottom: 6px; color: var(--ink-soft); }
+      label.field { display: block; margin-bottom: 16px; }
+      label.field > span { display: block; font-size: 14px; font-weight: 500; letter-spacing: .02em; margin-bottom: 8px; color: var(--ink-soft); }
       input[type="text"], input[type="number"], input[type="date"], select {
-        border-radius: 4px; width: 100%; padding: 8px 10px;
-        border: 1px solid #263a55; background: var(--surface-2); min-height: 38px; font-size: 14px;
+        border-radius: 5px; width: 100%; padding: 12px 14px;
+        border: 1px solid #263a55; background: var(--surface-2); min-height: 52px; font-size: 17px;
       }
       input::placeholder { color: #4d6076; }
       input:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
@@ -77,59 +77,59 @@
 
       .btn {
         border: 1px solid #2e4562; background: var(--surface-3); color: var(--ink);
-        border-radius: 4px; padding: 7px 14px; font-weight: 500; font-size: 13.5px; min-height: 36px; line-height: 1.3;
+        border-radius: 5px; padding: 11px 20px; font-weight: 500; font-size: 16px; min-height: 48px; line-height: 1.35;
       }
       .btn:hover { background: #1a2f4a; }
       .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
       .btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
-      .btn.small { min-height: 30px; padding: 4px 10px; font-size: 12.5px; }
+      .btn.small { min-height: 40px; padding: 7px 14px; font-size: 14.5px; }
       .btn.danger { color: var(--danger); background: transparent; }
       .btn.danger:hover { background: #1e1a22; }
       .btn:disabled { opacity: .45; cursor: not-allowed; }
-      .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+      .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
 
-      .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
       .chip {
-        display: inline-flex; align-items: center; gap: 6px; background: transparent;
-        border: 1px solid var(--line); border-radius: 4px; padding: 4px 4px 4px 10px; font-weight: 500; font-size: 13.5px;
+        display: inline-flex; align-items: center; gap: 8px; background: transparent;
+        border: 1px solid var(--line); border-radius: 5px; padding: 6px 6px 6px 14px; font-weight: 500; font-size: 16px; min-height: 44px;
       }
       .chip button {
-        border: none; background: transparent; color: var(--ink-faint); font-size: 16px; line-height: 1;
-        width: 26px; height: 26px; border-radius: 3px; padding: 0; min-height: 0;
+        border: none; background: transparent; color: var(--ink-faint); font-size: 20px; line-height: 1;
+        width: 32px; height: 32px; border-radius: 4px; padding: 0; min-height: 0;
       }
       .chip button:hover { color: var(--ink); background: var(--surface-3); }
-      .empty { color: var(--ink-faint); background: var(--surface-2); border: 1px solid var(--line-light); border-radius: 4px; padding: 11px 12px; font-size: 13px; }
+      .empty { color: var(--ink-faint); background: var(--surface-2); border: 1px solid var(--line-light); border-radius: 5px; padding: 16px 14px; font-size: 15.5px; }
 
-      .seg { display: flex; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; margin-bottom: 12px; background: var(--surface-2); }
+      .seg { display: flex; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; margin-bottom: 14px; background: var(--surface-2); }
       .seg button {
         flex: 1; border: none; background: transparent; color: var(--ink-soft);
-        padding: 8px 4px; font-weight: 500; font-size: 13px; min-height: 36px;
+        padding: 12px 6px; font-weight: 500; font-size: 15.5px; min-height: 48px;
       }
       .seg button[aria-pressed="true"] { background: #1e344f; color: var(--ink); font-weight: 600; }
       .seg button + button { border-left: 1px solid var(--line); }
 
       .plist { display: flex; flex-direction: column; border-top: 1px solid var(--line-light); }
       .prow {
-        display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--line-light);
-        padding: 7px 2px; min-height: 44px; flex-wrap: wrap;
+        display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--line-light);
+        padding: 10px 2px; min-height: 56px; flex-wrap: wrap;
       }
-      .prow label { display: flex; align-items: center; gap: 9px; flex: 1 1 auto; min-height: 32px; cursor: pointer; font-weight: 400; font-size: 14px; }
-      .prow input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); flex: none; margin: 0; }
-      .prow .amt { flex: 0 1 150px; display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-soft); }
-      .prow .amt input { min-height: 34px; }
+      .prow label { display: flex; align-items: center; gap: 11px; flex: 1 1 auto; min-height: 40px; cursor: pointer; font-weight: 400; font-size: 16.5px; }
+      .prow input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--accent); flex: none; margin: 0; }
+      .prow .amt { flex: 0 1 170px; display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--ink-soft); }
+      .prow .amt input { min-height: 44px; }
       .prow.off { opacity: .45; }
-      .sumline { font-size: 12.5px; margin-top: 10px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+      .sumline { font-size: 14.5px; margin-top: 12px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
       .sumline.bad { color: var(--danger); }
       .sumline.ok { color: var(--pos); }
 
-      .msg { border-radius: 4px; padding: 8px 10px; font-size: 13px; margin: 10px 0; display: none; border: 1px solid transparent; }
+      .msg { border-radius: 5px; padding: 12px 14px; font-size: 15px; margin: 12px 0; display: none; border: 1px solid transparent; }
       .msg.show { display: block; }
       .msg.err { background: var(--warn-soft); border-color: #3d3520; color: var(--warn); }
       .msg.ok { background: var(--accent-soft); border-color: #1e3a5a; color: #9dbfdd; }
 
       table { width: 100%; border-collapse: collapse; }
-      th, td { text-align: left; padding: 9px 8px 9px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 14px; }
-      th { font-size: 11px; letter-spacing: .07em; color: var(--ink-faint); font-weight: 600; padding-top: 4px; padding-bottom: 8px; border-bottom-color: var(--line); }
+      th, td { text-align: left; padding: 12px 10px 12px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 16px; }
+      th { font-size: 12.5px; letter-spacing: .07em; color: var(--ink-faint); font-weight: 600; padding-top: 6px; padding-bottom: 10px; border-bottom-color: var(--line); }
       td:last-child, th:last-child { padding-right: 0; }
       td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
       .pos { color: var(--pos); font-weight: 500; }
@@ -137,37 +137,38 @@
       .zero { color: var(--ink-faint); }
 
       .transfer {
-        display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-        border-bottom: 1px solid var(--line-light); padding: 10px 0;
+        display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+        border-bottom: 1px solid var(--line-light); padding: 13px 0;
       }
-      .transfer .who { font-weight: 400; flex: 1 1 auto; font-size: 14px; }
-      .transfer .amt-big { font-weight: 600; font-size: 15px; font-variant-numeric: tabular-nums; }
+      .transfer .who { font-weight: 400; flex: 1 1 auto; font-size: 16.5px; }
+      .transfer .amt-big { font-weight: 600; font-size: 18px; font-variant-numeric: tabular-nums; }
       .arrow { color: var(--ink-faint); font-weight: 400; padding: 0 2px; }
 
-      .item { border-bottom: 1px solid var(--line-light); padding: 12px 0; }
+      .item { border-bottom: 1px solid var(--line-light); padding: 15px 0; }
       .item:last-child { border-bottom: none; }
-      .item .top { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
-      .item .desc { font-weight: 500; flex: 1 1 auto; font-size: 14px; }
-      .item .amount { font-weight: 600; font-variant-numeric: tabular-nums; font-size: 14px; }
-      .item .meta { color: var(--ink-soft); font-size: 12.5px; margin-top: 3px; line-height: 1.5; }
-      .item .actions { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
-      .totals { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); background: var(--surface-2); border-radius: 4px; margin-bottom: 16px; overflow: hidden; }
-      .totals div { padding: 12px 14px; }
+      .item .top { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+      .item .desc { font-weight: 500; flex: 1 1 auto; font-size: 16.5px; }
+      .item .amount { font-weight: 600; font-variant-numeric: tabular-nums; font-size: 16.5px; }
+      .item .meta { color: var(--ink-soft); font-size: 14.5px; margin-top: 4px; line-height: 1.55; }
+      .item .actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+      .totals { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); background: var(--surface-2); border-radius: 5px; margin-bottom: 20px; overflow: hidden; }
+      .totals div { padding: 16px 16px; }
       .totals div + div { border-left: 1px solid var(--line-light); }
-      .totals div b { display: block; font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.25; }
-      .totals div span { font-size: 11px; letter-spacing: .05em; color: var(--ink-faint); display: block; margin-top: 3px; }
+      .totals div b { display: block; font-size: 21px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.25; }
+      .totals div span { font-size: 12.5px; letter-spacing: .05em; color: var(--ink-faint); display: block; margin-top: 4px; }
 
-      .note { font-size: 12.5px; color: var(--ink-soft); margin: 8px 0 0; }
-      .shot-row { display: flex; gap: 8px; margin-bottom: 6px; align-items: center; }
+      .note { font-size: 14.5px; color: var(--ink-soft); margin: 10px 0 0; }
+      .shot-row { display: flex; gap: 10px; margin-bottom: 8px; align-items: center; }
       .shot-row input { flex: 1 1 auto; }
-      #shotPreview { max-width: 100%; border: 1px solid var(--line); border-radius: 4px; display: block; }
+      #shotPreview { max-width: 100%; border: 1px solid var(--line); border-radius: 5px; display: block; }
 
       @media (max-width: 560px) {
-        .wrap { padding: 16px 12px 48px; }
-        section.card { padding: 16px 14px 14px; }
-        .prow .amt { flex: 1 1 120px; }
-        .totals div { padding: 10px 10px; }
-        .totals div b { font-size: 15px; }
+        .wrap { padding: 18px 14px 56px; }
+        section.card { padding: 20px 16px 18px; }
+        .prow .amt { flex: 1 1 140px; }
+        .totals div { padding: 13px 12px; }
+        .totals div b { font-size: 18px; }
+        .btn { padding: 11px 16px; }
       }
     </style>
   </head>
@@ -182,14 +183,9 @@
         <label class="field" for="gateGroupName"><span>名稱</span>
           <input type="text" id="gateGroupName" placeholder="例如：旅行" autocomplete="off" />
         </label>
-        <div class="row">
-          <label class="field" for="gatePass1"><span>密碼 · 4位</span>
-            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" data-pin id="gatePass1" placeholder="1234" autocomplete="new-password" />
-          </label>
-          <label class="field" for="gatePass2"><span>再輸入</span>
-            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" data-pin id="gatePass2" placeholder="再輸入" autocomplete="new-password" />
-          </label>
-        </div>
+        <label class="field" for="gatePass1"><span>密碼 · 4位</span>
+          <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" data-pin id="gatePass1" placeholder="1234" autocomplete="new-password" />
+        </label>
         <div class="btn-row">
           <button class="btn primary" id="createGroupBtn" type="button">建立</button>
         </div>
@@ -257,7 +253,7 @@
               <input type="date" id="expDate" />
             </label>
           </div>
-          <span style="display:block;font-size:12px;font-weight:500;letter-spacing:.02em;margin-bottom:6px;color:var(--ink-soft);">分法</span>
+          <span style="display:block;font-size:14px;font-weight:500;letter-spacing:.02em;margin-bottom:8px;color:var(--ink-soft);">分法</span>
           <div class="seg" role="group" aria-label="分法">
             <button type="button" data-mode="equal" aria-pressed="true">平均</button>
             <button type="button" data-mode="custom" aria-pressed="false">自訂金額</button>
@@ -374,12 +370,11 @@
       function createGroup() {
         var msg = $("gateCreateMsg");
         var name = $("gateGroupName").value.trim();
-        var p1 = $("gatePass1").value, p2 = $("gatePass2").value;
+        var p1 = $("gatePass1").value;
         if (!name) { showMsg(msg, "請輸入名稱。", "err"); return; }
         if (!/^\d{4}$/.test(p1)) { showMsg(msg, "密碼須為 4 位數字。", "err"); return; }
-        if (p1 !== p2) { showMsg(msg, "兩次密碼不一致。", "err"); return; }
         state = { group: { name: name, passHash: hashPass(p1), pass: p1 }, members: [], expenses: [] };
-        $("gatePass1").value = ""; $("gatePass2").value = "";
+        $("gatePass1").value = "";
         showApp();
       }
       function resetGroup() {
@@ -936,7 +931,8 @@
       });
 
       $("createGroupBtn").addEventListener("click", createGroup);
-      $("gatePass2").addEventListener("keydown", function (ev) { if (ev.key === "Enter") createGroup(); });
+      $("gatePass1").addEventListener("keydown", function (ev) { if (ev.key === "Enter") createGroup(); });
+      $("gateGroupName").addEventListener("keydown", function (ev) { if (ev.key === "Enter") { ev.preventDefault(); $("gatePass1").focus(); } });
       $("resetBtn").addEventListener("click", resetGroup);
 
       $("addMemberBtn").addEventListener("click", addMember);
